@@ -1,0 +1,4 @@
+<mat-card class="Bled">
+  <button *ngFor="let item of ledstrip" mat-raised-button [ngClass]="anime[item]"
+          (click)="changeColor(item)"></button>
+</mat-card>

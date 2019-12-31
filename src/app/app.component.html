@@ -1,0 +1,30 @@
+<div class="example-container"  *ngFor="let week of weeks">
+  <h2>To do</h2>
+
+  <div
+
+    cdkDropList
+    id="{{week.id}}"
+    cdkDropListOrientation="horizontal"
+    [cdkDropListData]="week.weeklist"
+    [cdkDropListConnectedTo]="list"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <app-bled [nbled]="item"  *ngFor="let item of week.weeklist" cdkDrag></app-bled>
+  </div>
+</div>
+
+<div class="example-container">
+  <h2>Done</h2>
+
+  <div
+    cdkDropList
+    cdkDropListOrientation="horizontal"
+    #list=cdkDropList
+    [cdkDropListData]="done"
+    [cdkDropListConnectedTo]="connectedTo"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div  *ngFor="let item of done" cdkDrag><app-bled [nbled]="item"></app-bled></div>
+  </div>
+</div>
